@@ -1,0 +1,13 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="user_image_corner_radius">120</dimen>
+    <dimen name="sport_location_fragment_radius">40</dimen>
+    <dimen name="sport_location_horizontal_constraint">64</dimen>
+    <dimen name="location_image_width">73dp</dimen>
+    <dimen name="location_image_height">73dp</dimen>
+    <dimen name="location_title_height">20dp</dimen>
+    <dimen name="location_card_radius">12dp</dimen>
+    <dimen name="location_card_elevation">6dp</dimen>
+</resources>
