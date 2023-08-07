@@ -3,23 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_recommendation">
+    app:startDestination="@id/navigation_recommendation">
 
     <fragment
         android:id="@+id/navigation_recommendation"
-        android:name="com.sportsapp.activity.main.ui.recommendations.RecommendationsFragment"
-        android:label="@string/title_recommendation"
+        android:name="com.sportsapp.activity.main.ui.recent.RecommendationsFragment"
+        android:label="@string/empty_text"
         tools:layout="@layout/fragment_recommendations" />
 
     <fragment
         android:id="@+id/navigation_jams"
         android:name="com.sportsapp.activity.main.ui.jams.JamsFragment"
-        android:label="@string/title_jams"
+        android:label="@string/empty_text"
         tools:layout="@layout/fragment_jams" />
 
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.sportsapp.activity.main.ui.settings.SettingsFragment"
-        android:label="@string/title_settings"
+        android:label="@string/empty_text"
         tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/navigation_add"
+        android:name="com.sportsapp.activity.main.ui.add.AddFragment"
+        android:label="@string/empty_text"
+        tools:layout="@layout/fragment_add" />
+
+    <fragment
+        android:id="@+id/navigation_browse"
+        android:name="com.sportsapp.activity.main.ui.browse.BrowseFragment"
+        android:label="@string/empty_text"
+        tools:layout="@layout/fragment_browse" />
+
 </navigation>

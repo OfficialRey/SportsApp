@@ -9,6 +9,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.sportsapp.databinding.ActivityMainBinding
 import com.sportsapp.R
+import com.sportsapp.database.DatabaseHelper
+import com.sportsapp.log.CustomLogger
+import com.sportsapp.logic.GlobalValues
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +19,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        GlobalValues.update(this)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -28,7 +33,11 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_recommendation, R.id.navigation_jams, R.id.navigation_settings
+                R.id.navigation_add,
+                R.id.navigation_browse,
+                R.id.navigation_recommendation,
+                R.id.navigation_jams,
+                R.id.navigation_settings
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

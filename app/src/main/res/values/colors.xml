@@ -5,4 +5,9 @@
     <color name="hyper_link">#3366CC</color>
     <color name="sport_location_fragment_background">#2196F3</color>
     <color name="custom_green">#83E888</color>
+    <color name="bottom_navigation_active">#157A1A</color>
+    <color name="button_color">#139C1A</color>
+    <color name="custom_green_text">#045808</color>
+    <color name="light_gray">#D5D5D5</color>
+    <color name="gold">#FFD700</color>
 </resources>

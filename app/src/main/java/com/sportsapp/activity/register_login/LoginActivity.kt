@@ -10,9 +10,10 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.sportsapp.R
-import com.sportsapp.logic.LoginLogic
+import com.sportsapp.logic.UserLogic
 import com.google.android.material.R.color.*
 import com.sportsapp.activity.main.MainActivity
+import com.sportsapp.logic.GlobalValues
 
 class LoginActivity : AppCompatActivity() {
 
@@ -22,13 +23,11 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginChangeToRegister: TextView
     private lateinit var feedbackText: TextView
 
-    private lateinit var loginLogic: LoginLogic
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        loginLogic = LoginLogic(this)
+        GlobalValues.update(this)
 
         // Find widgets
         loginUserName = findViewById(R.id.loginUsername)
@@ -44,6 +43,8 @@ class LoginActivity : AppCompatActivity() {
 
         loginButton.setOnClickListener(LoginButtonListener(this))
         loginChangeToRegister.setOnClickListener(ChangeToRegisterListener(this))
+
+        GlobalValues.update(this)
     }
 
     private inner class TextChangeListener : TextWatcher {
@@ -66,9 +67,9 @@ class LoginActivity : AppCompatActivity() {
             resetStyles()
             val userName = loginUserName.text.toString()
             val password = loginPassword.text.toString()
-            if (loginLogic.existsUser(userName)) {
-                if (loginLogic.checkPassword(userName, password)) {
-                    loginLogic.logInUser(userName)
+            if (GlobalValues.getUserLogic()!!.existsUser(userName)) {
+                if (GlobalValues.getUserLogic()!!.checkPassword(userName, password)) {
+                    GlobalValues.getUserLogic()!!.logInUser(userName)
                     // User logged in
                     intent = Intent(activity, MainActivity::class.java)
                     startActivity(intent)

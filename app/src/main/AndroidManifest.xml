@@ -2,6 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,22 +21,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SportsApp"
         tools:targetApi="31">
-
+        <activity
+            android:name=".activity.create_jam.CreateJamActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.spot_detail.WriteReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.spot_detail.SpotDetailActivity"
+            android:exported="false"
+            android:label="@string/title_activity_spot_detail"
+            android:theme="@style/Theme.SportsApp" />
         <activity
             android:name=".activity.main.MainActivity"
             android:exported="false"
             android:label="@string/title_activity_main" />
-
         <activity
             android:name=".activity.register_login.LoginActivity"
             android:exported="false" />
-
         <activity
             android:name=".activity.register_login.RegisterActivity"
             android:exported="false" />
-
         <activity
-            android:name=".activity.register_login.EntryActivity"
+            android:name=".activity.register_login.SplashActivity"
             android:exported="true"
             android:label="@string/title_activity_entry"
             android:theme="@style/Theme.SportsApp">
@@ -37,7 +53,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

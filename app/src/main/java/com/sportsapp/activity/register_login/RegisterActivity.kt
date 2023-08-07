@@ -14,7 +14,7 @@ import com.google.android.material.R.color.*
 import com.sportsapp.R
 import com.sportsapp.activity.main.MainActivity
 import com.sportsapp.database.DatabaseHelper
-import com.sportsapp.logic.LoginLogic
+import com.sportsapp.logic.GlobalValues
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var registerUserName: TextView
@@ -24,13 +24,9 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var registerChangeToLogin: TextView
     private lateinit var feedbackText: TextView
 
-    private lateinit var loginLogic: LoginLogic
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-
-        loginLogic = LoginLogic(this)
 
         // Find widgets
         registerUserName = findViewById(R.id.registerUsername)
@@ -48,6 +44,8 @@ class RegisterActivity : AppCompatActivity() {
 
         registerButton.setOnClickListener(RegisterButtonListener(this))
         registerChangeToLogin.setOnClickListener(ChangeToLoginListener(this))
+
+        GlobalValues.update(this)
     }
 
     private inner class TextChangeListener : TextWatcher {
@@ -69,12 +67,12 @@ class RegisterActivity : AppCompatActivity() {
     private inner class RegisterButtonListener(var activity: RegisterActivity) : OnClickListener {
         override fun onClick(v: View?) {
             resetStyles()
-            if (!loginLogic.existsUser(registerUserName.text.toString())) {
+            if (!GlobalValues.getUserLogic()!!.existsUser(registerUserName.text.toString())) {
                 if (registerPassword.text.toString() == registerPasswordConfirm.text.toString()) {
                     if (registerUserName.length() <= DatabaseHelper.USER_NAME_LENGTH) {
                         if (registerPassword.length() <= DatabaseHelper.PASSWORD_LENGTH) {
                             // Create new user
-                            loginLogic.createUser(
+                            GlobalValues.getUserLogic()!!.createUser(
                                 registerUserName.text.toString(),
                                 registerPassword.text.toString()
                             )
