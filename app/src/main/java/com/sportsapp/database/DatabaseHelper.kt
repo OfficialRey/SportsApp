@@ -99,7 +99,7 @@ class DatabaseHelper(context: Context?) :
         executeQuery(
             "CREATE TABLE IF NOT EXISTS $REVIEW_TABLE (" +
                     "$REVIEW_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    "$REVIEW_CREATOR VARCHAR," +
+                    "$REVIEW_CREATOR INTEGER," +
                     "$REVIEW_RATING INTEGER," +
                     "$REVIEW_TITLE VARCHAR($TITLE_LENGTH)," +
                     "$REVIEW_DESCRIPTION VARCHAR($DESCRIPTION_LENGTH)," +
